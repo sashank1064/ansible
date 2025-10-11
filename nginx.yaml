@@ -2,5 +2,6 @@
   hosts: frontend
   tasks:
   - name: install nginx
-    state: installed
+    ansible.builtin.package:
+    state: present
     enable: yes
