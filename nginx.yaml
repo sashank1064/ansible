@@ -1,0 +1,6 @@
+- name: install nginx and run
+  hosts: frontend
+  tasks:
+  - name: install nginx
+    state: installed
+    enable: yes
