@@ -3,3 +3,8 @@
   tasks:
     - name: ping the server
       ansible.builtin.ping:
+      register: result
+
+    - name: show ping result
+      ansible.builtin.debug:
+        var: result
