@@ -1,4 +1,5 @@
 - name: install packages in loop
+  become: yes
   hosts: local
   connection: local
   tasks:
