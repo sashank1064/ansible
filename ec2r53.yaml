@@ -1,0 +1,22 @@
+- name: create ec2 instance using ansible
+  hosts: local
+  connection: local
+  vars:
+    instances:
+    - mysql
+    - backend
+    - frontend
+  subnet_id: subnet-00402e14fdf4e4daf
+  sg_id: sg-0644345eb3c89c13e
+  tasks:
+  - name: creating ec2 instance
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      vpc_subnet_id: "{{ subnet_id }}"
+      instance_type: t3.micro
+      security_group: "{{ sg_id }}"
+      image_id: ami-09c813fb71547fc4f
+      tags: 
+        name: "{{ item }}"
+
+    loop: "{{ instances }}"
