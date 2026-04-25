@@ -1,6 +1,6 @@
-# ansible
+# Ansible Patterns Reference
 
-A patterns reference for Ansible: ad-hoc commands, playbooks, roles, handlers, vault, dynamic inventory. Each topic has a small, runnable example.
+A structured reference for Ansible: ad-hoc commands, playbooks, roles, handlers, vault, and dynamic inventory. Each numbered folder isolates one concept with a minimal runnable example.
 
 ![Ansible](https://img.shields.io/badge/Ansible-EE0000?logo=ansible&logoColor=white)
 ![YAML](https://img.shields.io/badge/YAML-CB171E?logo=yaml&logoColor=white)
@@ -13,8 +13,9 @@ A reference workspace for Ansible patterns. Each top-level directory covers one 
 
 For the real projects that apply these patterns at scale, see:
 
-- [`ansible-roboshop`](https://github.com/sashank1064/ansible-roboshop): flat playbooks on an 11-service app
-- [`ansible-roboshop-roles`](https://github.com/sashank1064/ansible-roboshop-roles): refactored into reusable roles
+- [`ansible-roboshop`](https://github.com/sashank1064/ansible-roboshop): flat playbooks deploying an 11-service app
+- [`ansible-roboshop-roles`](https://github.com/sashank1064/ansible-roboshop-roles): same platform refactored into reusable roles
+- [`ansible-roboshop-roles-tf`](https://github.com/sashank1064/ansible-roboshop-roles-tf): Ansible configuration layer on top of Terraform-provisioned AWS infrastructure
 
 ## Topics
 
@@ -46,10 +47,11 @@ For the real projects that apply these patterns at scale, see:
 ├── 08-roles/
 ├── 09-vault/
 ├── 10-dynamic-inventory/
-└── inventory.ini
+├── inventory.ini          # static inventory used by numbered examples
+└── *.yaml                 # standalone one-off experiments (ping, loops, facts, etc.)
 ```
 
-Each numbered folder is independent. Open it, run the playbook, read the comments.
+Each numbered folder is independent. The root-level `.yaml` files are standalone experiments referenced directly by `ansible-playbook` without a subdirectory structure.
 
 ## Quick start
 
